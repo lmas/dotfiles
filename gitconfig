@@ -1,0 +1,13 @@
+[user]
+    email = git@lmas.se
+    name = A. Svensson
+
+[push]
+    default = upstream
+
+[branch]
+    autosetupmerge = true
+
+[core]
+    autocrlf = false
+    ignorecase = false

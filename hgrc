@@ -1,0 +1,18 @@
+
+[diff]
+# Git extended diff format
+git = true
+# Lines of context to show
+#unified = 3
+
+[extensions]
+hgext.bookmarks =
+hggit =
+shelve =
+
+[ui]
+username = A. Svensson <lmasvensson@gmail.com>
+ssh = ssh -C
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt

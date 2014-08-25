@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$(xrandr --verbose | grep Brightness | cut -d':' -f2)" == " 1.0" ]; then
+	xrandr --output VGA-1 --brightness 0.65
+else
+	xrandr --output VGA-1 --brightness 1.0
+fi

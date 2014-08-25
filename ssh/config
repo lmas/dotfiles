@@ -1,0 +1,44 @@
+
+Host thebox
+    Hostname 192.168.1.1
+    Port 8822
+    User lmas
+    IdentityFile ~/.ssh/thebox
+
+Host bitbucket.org
+    Hostname bitbucket.org
+    Port 22
+    User hg
+    IdentityFile ~/.ssh/bitbucket
+
+Host github.com
+    Hostname github.com
+    Port 22
+    User git
+    IdentityFile ~/.ssh/github
+
+Host files
+    Hostname 192.168.1.1
+    port 8822
+    User debian-transmission
+    IdentityFile ~/.ssh/files
+
+Host tinybox
+    Hostname 192.168.1.3
+    Port 8822
+    User lmas
+    IdentityFile ~/.ssh/tinybox
+
+Host webbox
+    Hostname lmas.se
+    #Hostname 188.226.194.186
+    Port 8822
+    User lmas
+    IdentityFile ~/.ssh/webbox
+
+Host tourney
+    Hostname tourney
+    Port 6622
+    User alex
+    #IdentityFile ~/.ssh/kj-gandalf
+

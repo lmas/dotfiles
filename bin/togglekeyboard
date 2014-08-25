@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$(setxkbmap -print | grep xkb_symbols | cut -d'+' -f2)" == "us" ]; then
+	setxkbmap se -variant nodeadkeys
+else
+	setxkbmap us
+fi

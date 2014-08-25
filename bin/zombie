@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo pm-suspend
+
+amixer -c Omega -q set PCM 0
+amixer -c Omega -q set PCM 20
