@@ -37,9 +37,6 @@ xset -b
 # dimm the lights
 redshift -l 57:11 -b 0.9 &
 
-# show current time, pacman updates, CPU usage and mpd song
-dwmstatus &
-
 # start the WM
-exec dwm
+exec i3
 
