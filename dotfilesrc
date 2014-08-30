@@ -3,6 +3,7 @@ repository = ~/.dotfiles
 packages = [
     'config',
     'ssh',
-    'bin']
+    'bin',
+    'i3']
 ignore = [
     '.hg']

@@ -1,0 +1,66 @@
+#!/usr/bin/env python
+
+import sys
+import time
+import pprint
+
+import i3
+
+###############################################################################
+
+def i3_cmd(cmd):
+    # Run command and add a slight execution delay just in case
+    i3.command('exec %s' % cmd)
+    time.sleep(0.2)
+
+def new_stacked_window(cmd):
+    # Find out which workspace is focused
+    parent = None
+    for workspace in i3.get_workspaces():
+        if workspace['focused']:
+            parent = workspace['name']
+            break
+
+    # List of windows
+    nodes = i3.filter(name=parent)[0]['nodes']
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(nodes)
+
+    # Decide if we should split the workspace or just make new windows
+    if len(nodes) == 0:
+        print 'empty'
+        i3_cmd(cmd)
+        return
+
+    if len(nodes) == 1:
+        print 'split'
+        # Only one window, split the workspace and add new window
+        i3.split('h')
+        i3_cmd(cmd)
+        i3.split('v')
+    else:
+        print 'append'
+        # There's already other windows, focus the last window in the last
+        # window container and then add the new window.
+        #while 1:
+        #    tmp = nodes[-1]
+        #    if len(tmp['nodes']) < 1:
+        #        last_node = tmp
+        #        break
+        #    nodes = tmp['nodes']
+        last_node = i3.filter(focused=True)[0]
+        i3.focus(title=last_node['name'])
+        i3_cmd(cmd)
+
+def main():
+    # Check the args for a command to run in a new, stacked window
+    if len(sys.argv) < 2:
+        print ('ERROR: You must specify a command to run!')
+
+    cmd = ' '.join(sys.argv[1:])
+    new_stacked_window(cmd)
+
+###############################################################################
+
+if __name__ == '__main__':
+    main()
