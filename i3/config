@@ -11,7 +11,7 @@ font $FONT
 floating_modifier $mod
 
 # horizontal|vertical|auto
-default_orientation vertical
+default_orientation horizontal
 
 # default|stacking|tabbed
 workspace_layout default
