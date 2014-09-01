@@ -29,6 +29,9 @@ bar {
         mode dock
         position top
         workspace_buttons yes
+        colors {
+            statusline #aaaaaa
+        }
 }
 
 # Assign programs to workspaces
