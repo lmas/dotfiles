@@ -35,7 +35,7 @@ bar {
 }
 
 # Assign programs to workspaces
-assign [class="Iceweasel"] 2
+assign [class="Iceweasel"] 1
 
 # Let the mouse set window focus too
 focus_follows_mouse yes
