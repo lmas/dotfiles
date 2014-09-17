@@ -4,5 +4,5 @@ syntax: glob
 *.py[co]
 *.db
 *.sqlite3
+*.dat
 .coverage
-venv/*
