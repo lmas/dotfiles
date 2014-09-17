@@ -12,6 +12,7 @@ shelve =
 
 [ui]
 username = A. Svensson <lmasvensson@gmail.com>
+ignore = ~/.hgignore
 ssh = ssh -C
 
 [web]
