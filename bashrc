@@ -7,7 +7,17 @@ fi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#PS1='[\u@\h \W]\$ '
+# Ignore dulicate lines and lines starting with a space
+HISTCONTROL=ignoreboth
+
+# Append, only, to the history file
+shopt -s histappend
+
+# Set history length and size
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# Set the terminal prompt
 PS1='\[\e[1;32m\]\u\[\e[m\]@\h:\[\e[1;34m\]\w\[\e[m\] $ '
 
 export EDITOR=/usr/bin/vim
