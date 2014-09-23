@@ -29,6 +29,12 @@ Host tinybox
     User lmas
     IdentityFile ~/.ssh/tinybox
 
+Host backbox
+    Hostname 192.168.2.2
+    Port 8822
+    User lmas
+    IdentityFile ~/.ssh/backbox
+
 Host webbox
     Hostname lmas.se
     #Hostname 188.226.194.186
