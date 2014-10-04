@@ -1,0 +1,14 @@
+[distutils]
+index-servers =
+    pypi # live server
+    testpypi # testing server
+
+[pypi]
+repository = https://pypi.python.org/pypi
+username = lmas
+password = ENFEERpyp1
+
+[testpypi]
+repository = https://testpypi.python.org/pypi
+username = lmas
+password = ENFEERpyp1
