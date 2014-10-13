@@ -48,3 +48,7 @@ Host tourney
     User alex
     #IdentityFile ~/.ssh/kj-gandalf
 
+Host readerbox
+    Hostname 192.168.2.3
+    Port 22
+    User root
