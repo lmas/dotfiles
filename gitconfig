@@ -1,5 +1,5 @@
 [user]
-    email = git@lmas.se
+    email = lmasvensson@gmail.com
     name = A. Svensson
 
 [push]
@@ -9,5 +9,5 @@
     autosetupmerge = true
 
 [core]
-    autocrlf = false
+    autocrlf = input
     ignorecase = false
