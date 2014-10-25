@@ -1,8 +1,0 @@
-[dotfiles]
-repository = ~/.dotfiles
-packages = [
-    'config',
-    'ssh',
-    'bin']
-ignore = [
-    '.hg']
