@@ -9,6 +9,7 @@ git = true
 hgext.bookmarks =
 hggit =
 shelve =
+record =
 
 [ui]
 username = A. Svensson <lmasvensson@gmail.com>
