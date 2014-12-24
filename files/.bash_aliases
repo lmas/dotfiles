@@ -6,6 +6,7 @@ alias la="ls -Alh"
 alias rm="rm -I"
 alias mplayer="mplayer -fs -nolirc"
 
+
 # SSH
 # create new key. supply a filename (the '-f') to store it in!
 alias sshnewkey="ssh-keygen -t dsa -C '' -f"
@@ -22,3 +23,12 @@ alias dec='openssl aes-192-cbc -salt -d'
 
 # Mount network drive via sshfs
 alias boxmount="sshfs -p 8822 -o IdentityFile=~/.ssh/files debian-transmission@thebox:/files/ /files/"
+
+
+# Mercurial shortcuts
+alias hless='hg diff | less'
+alias hlog='hg log -G | less'
+alias hs='hg st'
+alias hc='hg commit'
+alias hr='hg record'
+alias hp='hg push'
