@@ -34,3 +34,8 @@ alias hr='hg record'
 alias hp='hg push'
 alias hi='hg incoming'
 alias ho='hg outgoing'
+
+# Make a bookmark of master for default, so a ref gets created. Othervise we
+# can't push the local repo to the git repo.
+alias hggitinit='hg bookmark -r default master'
+
