@@ -39,3 +39,16 @@ alias ho='hg outgoing'
 # can't push the local repo to the git repo.
 alias hggitinit='hg bookmark -r default master'
 
+alias g='git'
+alias gsta='git status'
+alias gcom='git commit'
+alias gadd='git add'
+alias glog='git log --pretty=minimal'
+alias gdif='git diff'
+alias gdic='git diff --cached'
+alias gsho='git show'
+alias gche='git checkout'
+alias gres='git reset --hard'
+alias gpul='git pull'
+alias gpus='git push'
+
