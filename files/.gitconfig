@@ -4,6 +4,7 @@
 [core]
     autocrlf = input
     ignorecase = false
+    excludesfile = ~/.gitignore
     editor = vim
     pager = less
 
