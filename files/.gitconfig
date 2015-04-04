@@ -1,13 +1,49 @@
-[user]
-    email = lmasvensson@gmail.com
-    name = A. Svensson
-
-[push]
-    default = upstream
-
 [branch]
     autosetupmerge = true
 
 [core]
     autocrlf = input
     ignorecase = false
+    editor = vim
+    pager = less
+
+[color]
+    ui = auto
+
+[diff]
+    tool = vimdiff
+    algorithm = minimal
+
+[difftool]
+    prompt = false
+
+[fetch]
+    prune = true
+
+[format]
+    pretty = minimal
+
+[http]
+    sslVerify = true
+    sslTry = true
+
+[merge]
+    tool = vimdiff
+
+[mergetool]
+    prompt = true
+
+[pretty]
+    minimal = "format:%Cgreen%ci%Creset %h %<(10,trunc)%Cred%cn%Creset %<(57,trunc)%s"
+
+[push]
+    default = simple
+
+[status]
+    short = true
+    branch = true
+
+[user]
+    email = lmasvensson@gmail.com
+    name = A. Svensson
+
