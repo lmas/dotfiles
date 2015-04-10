@@ -5,6 +5,7 @@ alias ll="ls -lh"
 alias la="ls -Alh"
 alias rm="rm -I"
 alias mplayer="mplayer -fs -nolirc"
+alias music='ncmpc -h gateway'
 
 
 # SSH
