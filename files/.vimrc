@@ -57,7 +57,17 @@ cmap w!! w !sudo tee > /dev/null %
 set pastetoggle=<F2> " toggles indenting of text when pasting
 nnoremap ; :
 
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+nnoremap <F3> :call TrimWhiteSpace()<CR>
+
 " SETTINGS ####################################################################
+
+" Automagically remove trailing whitespace for defined filetypes
+autocmd BufWritePre *.py :call TrimWhiteSpace()
 
 "set nowrap
 set relativenumber
