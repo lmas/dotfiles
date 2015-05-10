@@ -4,6 +4,10 @@ if [ -d "$HOME/.bin" ] ; then
     export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 fi
 
+# set the gopath
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 

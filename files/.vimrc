@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'fatih/vim-go'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -38,15 +39,21 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "Uses dictionary and source files to find matching words to complete.
 "See help completion for source
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+function! CleverTab()
+  if pumvisible()
     return "\<C-N>"
-  else
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
     return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
+  else
+    return "\<C-N>"
   endif
 endfunction
-inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-set complete+=k/usr/share/dict/american-english
+
+inoremap <Tab> <C-R>=CleverTab()<CR>
+"set complete+=k/usr/share/dict/american-english " Add english words
 
 nnoremap <F5> :SyntasticCheck<cr>
 nnoremap <F4> :SyntasticReset<cr>
@@ -65,9 +72,6 @@ endfunction
 nnoremap <F3> :call TrimWhiteSpace()<CR>
 
 " SETTINGS ####################################################################
-
-" Automagically remove trailing whitespace for defined filetypes
-autocmd BufWritePre *.py :call TrimWhiteSpace()
 
 "set nowrap
 set relativenumber
