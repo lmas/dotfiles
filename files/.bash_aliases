@@ -52,4 +52,3 @@ alias gche='git checkout'
 alias gres='git reset --hard'
 alias gpul='git pull'
 alias gpus='git push'
-
