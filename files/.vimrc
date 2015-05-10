@@ -91,6 +91,9 @@ set showmatch
 set matchpairs+=<:>
 set mouse=a
 
+" Hide annoying Preview buffer after autocompletion
+set completeopt=menu
+
 " tabs
 set shiftwidth=4
 set softtabstop=4
