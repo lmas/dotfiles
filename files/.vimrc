@@ -12,6 +12,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
+Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -73,6 +74,7 @@ nnoremap <F3> :call TrimWhiteSpace()<CR>
 
 " SETTINGS ####################################################################
 
+let mapleader = ","
 "set nowrap
 set relativenumber
 set ruler
@@ -102,7 +104,10 @@ set autoindent
 set copyindent
 " show tabs and trailing spaces
 set list
-set listchars=tab:>-,trail:.
+set listchars=tab:>-,trail:-
+
+"Hide whitespace chars in go files
+au Filetype go setlocal nolist
 
 " searching
 set ignorecase " ignore case when searching
