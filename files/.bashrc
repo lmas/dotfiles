@@ -5,7 +5,7 @@ if [ -d "$HOME/.bin" ] ; then
 fi
 
 # set the gopath
-export GOPATH=$HOME/go
+export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 # If not running interactively, don't do anything

@@ -35,6 +35,14 @@ let g:syntastic_mode_map = { 'mode': 'passive',
     \ 'active_filetypes': [],
     \ 'passive_filetypes': [] }
 
+" Setup the vim-go plugin
+let g:go_fmt_command = "goimports" " To let vim automagically fix imports
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 " KEY MAPS ####################################################################
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
