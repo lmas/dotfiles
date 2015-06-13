@@ -1,64 +1,69 @@
+#!/usr/bin/env bash
+#
+# Bash completion for golang.  Copyright 2015 Makoto Onuki
+#
+# Usage: source go.sh
 
-# Source: https://github.com/skelterjohn/go-pkg-complete
+_go_complete() {
+  local -A _go_flags
+  local _go_build_flags="-a -n -p -race -v -work -x -cclfags -compiler -gccgoflags -gcflags -installsuffix -ldflags -tags"
+  local _go_test_flags="-bench -benchmem -benchtime -blockprofile -blockprofilerate -cover -covermode -coverpkg -coverprofile -cpu -cpuprofile -memprofile -memprofilerate -outputdir -parallel -run -short -timeout -v"
 
-get_go_pkgs_in() {(
-    IFS=" "
-    gopath="$1"
-    word="$2"
-    for d in "$gopath"/src/"$word"*; do
-        [[ "$d" == *"*" ]] && continue
-        echo -n "${d/$gopath\/src\/} "
-    done
-    for d in "$gopath"/src/"$word"/*; do
-        [[ "$d" == *"*" ]] && continue
-        echo -n "${d/$gopath\/src\/}/ "
-    done
-)}
+  local cmd="${COMP_WORDS[0]}"
+  local sub="${COMP_WORDS[1]}"
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local prev="${COMP_WORDS[COMP_CWORD-1]}"
 
-get_go_pkgs_dup() {(
-    word=$1
-    IFS=":"
-    for g in $GOPATH; do
-        get_go_pkgs_in "$g" "$word"
-    done
-    IFS=" "
-)}
-
-
-get_go_pkgs() {
-    get_go_pkgs_dup $@ | sort | uniq
+  local cand=""
+  case "$prev" in
+    "go")
+      cand="build clean env fix fmt generate get install list run test tool version vet"
+      ;;
+    *)
+      case "$cur" in
+        -*)
+          case "$sub" in
+            build)    cand="-help -o -i ${_go_build_flags}" ;;
+            clean)    cand="-help -i -r -n -x ${_go_build_flags}" ;;
+            env)      cand="-help " ;;
+            fix)      cand="-help " ;;
+            fmt)      cand="-help -n -x" ;;
+            generate) cand="-help -run" ;;
+            get)      cand="-help -d -f -fix -t -u ${_go_build_flags}" ;;
+            install)  cand="-help ${_go_build_flags}" ;;
+            list)     cand="-help -e -f -json ${_go_build_flags}" ;;
+            run)      cand="-help -exec ${_go_build_flags}" ;;
+            test)     cand="-help -i -c -exec -o ${_go_build_flags} ${_go_test_flags}" ;;
+            tool)     cand="-help -n" ;;
+            version)  cand="-help " ;;
+            vet)      cand="-help -n -x" ;;
+          esac
+          ;;
+      esac
+      ;;
+  esac
+  if [ "x$cand" = "x" ] ; then
+    COMPREPLY=($(compgen -f -- ${cur}))
+  else
+    COMPREPLY=($(compgen -W "$cand" -- ${cur}))
+  fi
 }
 
-get_go_cmds() {
-    for i in build clean env fix fmt generate get install list run test tool version vet save vendor; do
-        [[ $i == $1* ]] && echo $i
-    done
+_godoc_complete() {
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+
+  local cand=""
+  case "$cur" in
+    -*)
+      cand="-v -q -src -tabwidth -timestamps -index -index_files -index_throttle -links -write_index -index_files -maxresults -notes -html -goroot -http -server -analysis -templates -url -zip -help"
+      ;;
+  esac
+  if [ "x$cand" = "x" ] ; then
+    COMPREPLY=($(compgen -f -- ${cur}))
+  else
+    COMPREPLY=($(compgen -W "$cand" -- ${cur}))
+  fi
 }
 
-go_pkg_complete() {
-    set -- $COMP_LINE
-    shift
-
-    while [[ $1 == -* ]]; do
-          shift
-    done
-    
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    if grep -q '^\(install\|build\|list\|get\|test\|generate\|vet\|save\|vendor\)$' <<< $1; then
-        COMPREPLY=( $(compgen -W "$(get_go_pkgs $cur)" -- $cur) )
-        return
-    fi
-
-    [[ $2 ]] && return
-
-    COMPREPLY=( $(compgen -W "$(get_go_cmds $cur)" -- $cur) )
-}
-
-wgo_pkg_complete() {
-    gopath=$(wgo env GOPATH) || go_pkg_complete $@
-    GOPATH=gopath go_pkg_complete $@
-}
-
-complete -o nospace -F go_pkg_complete go
-complete -o nospace -F wgo_pkg_complete wgo
-
+complete -o filenames -o bashdefault -F _go_complete go
+complete -o filenames -o bashdefault -F _godoc_complete godoc
