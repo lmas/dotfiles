@@ -43,46 +43,9 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" KEY MAPS ####################################################################
-
-"Use TAB to complete when typing words, else inserts TABs as usual.
-"Uses dictionary and source files to find matching words to complete.
-"See help completion for source
-function! CleverTab()
-  if pumvisible()
-    return "\<C-N>"
-  endif
-  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
-    return "\<Tab>"
-  elseif exists('&omnifunc') && &omnifunc != ''
-    return "\<C-X>\<C-O>"
-  else
-    return "\<C-N>"
-  endif
-endfunction
-
-inoremap <Tab> <C-R>=CleverTab()<CR>
-"set complete+=k/usr/share/dict/american-english " Add english words
-
-nnoremap <F5> :SyntasticCheck<cr>
-nnoremap <F4> :SyntasticReset<cr>
-
-" Allow saving of files as sudo when one forget to start vim using sudo
-cmap w!! w !sudo tee > /dev/null %
-
-set pastetoggle=<F2> " toggles indenting of text when pasting
-nnoremap ; :
-
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-nnoremap <F3> :call TrimWhiteSpace()<CR>
-
 " SETTINGS ####################################################################
 
-let mapleader = ","
+let mapleader = " "
 "set nowrap
 set relativenumber
 set ruler
@@ -116,6 +79,8 @@ set listchars=tab:>-,trail:-
 
 "Hide whitespace chars in go files
 au Filetype go setlocal nolist
+au Filetype go setlocal softtabstop=8
+au Filetype go setlocal shiftwidth=8
 
 " searching
 set ignorecase " ignore case when searching
@@ -138,4 +103,57 @@ syntax enable
 set background=dark
 let base16colorspace=256
 colorscheme base16-default
+
+" KEY MAPS ####################################################################
+
+"Use TAB to complete when typing words, else inserts TABs as usual.
+"Uses dictionary and source files to find matching words to complete.
+"See help completion for source
+function! CleverTab()
+  if pumvisible()
+    return "\<C-N>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
+  else
+    return "\<C-N>"
+  endif
+endfunction
+
+inoremap <Tab> <C-R>=CleverTab()<CR>
+"set complete+=k/usr/share/dict/american-english " Add english words
+
+nnoremap <F5> :SyntasticCheck<cr>
+nnoremap <F4> :SyntasticReset<cr>
+
+set pastetoggle=<F2> " toggles indenting of text when pasting
+nnoremap ; :
+
+" Removes trailing spaces
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+nnoremap <F3> :call TrimWhiteSpace()<CR>
+
+" Switch between buffers
+nnoremap <leader>j :bn<CR>
+nnoremap <leader>k :bp<CR>
+
+" Copy whole buffer to clipboard
+nnoremap <leader>y :w !xclip -i -sel clip<CR>
+" And paste in clipboard to buffer
+nnoremap <leader>p :r !xclip -o -sel clip<CR>
+
+" Allow saving of files as sudo when one forget to start vim using sudo
+nnoremap <leader>W :w !sudo tee > /dev/null %<CR>
+
+" Various simple shortcuts
+nnoremap <leader>s :%s/
+nnoremap <leader>w :w<CR>
+nnoremap <leader>e :e<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :q!<CR>
 
