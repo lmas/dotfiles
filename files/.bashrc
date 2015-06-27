@@ -1,12 +1,16 @@
 
 # Add user dirs to PATH
+if [ -d "$HOME/.local/.bin" ] ; then
+    export PATH=$HOME/.local/.bin:$PATH
+fi
+
 if [ -d "$HOME/.bin" ] ; then
-    export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
+    export PATH=$HOME/.bin:$PATH
 fi
 
 # set the gopath
 export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
