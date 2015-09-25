@@ -7,8 +7,6 @@ alias rm="rm -I"
 alias mplayer="mplayer -fs -nolirc"
 alias music='ncmpc -h gateway'
 
-
-# SSH
 # create new key. supply a filename (the '-f') to store it in!
 alias sshnewkey="ssh-keygen -t dsa -C '' -f"
 
@@ -24,21 +22,6 @@ alias dec='openssl aes-192-cbc -salt -d'
 
 # Mount network drive via sshfs
 alias boxmount="sshfs -p 8822 -o IdentityFile=~/.ssh/files debian-transmission@thebox:/files/ /files/"
-
-
-# Mercurial shortcuts
-alias hless='hg diff | less'
-alias hlog='hg log -G | less'
-alias hs='hg st'
-alias hc='hg commit'
-alias hr='hg record'
-alias hp='hg push'
-alias hi='hg incoming'
-alias ho='hg outgoing'
-
-# Make a bookmark of master for default, so a ref gets created. Othervise we
-# can't push the local repo to the git repo.
-alias hggitinit='hg bookmark -r default master'
 
 alias g='git'
 alias gsta='git status'
