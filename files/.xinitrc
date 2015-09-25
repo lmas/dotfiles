@@ -1,35 +1,15 @@
 #!/bin/bash
-#
-# Executed by startx (run your window manager from here)
-
-# merge in defaults and keymaps
-#userresources=$HOME/.Xresources
-#usermodmap=$HOME/.Xmodmap
-#sysresources=/etc/X11/xinit/.Xresources
-#sysmodmap=/etc/X11/xinit/.Xmodmap
-#if [ -f $sysresources ]; then
-#    /usr/bin/xrdb -merge $sysresources
-#fi
-#if [ -f $sysmodmap ]; then
-#    /usr/bin/xmodmap $sysmodmap
-#fi
-#if [ -f $userresources ]; then
-#    /usr/bin/xrdb -merge $userresources
-#fi
-#if [ -f $usermodmap ]; then
-#    /usr/bin/xmodmap $usermodmap
-#fi
 
 # turn on numlock keys
 numlockx on
 
-# disable screen blanking
+# disable screen blanking (non of them works I think... :( )
 xset s off
 xset -dpms
 xset s noblank
 
-# set mouse speed
-xset m 1.5
+# custom script to fix mouse
+setmousespeed
 
 # no more beeping bells
 xset -b
