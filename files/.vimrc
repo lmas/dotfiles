@@ -46,10 +46,9 @@ let g:go_highlight_build_constraints = 1
 
 " Setup the emmet-vim plugin
 let g:emmet_html5 = 1
-"let g:user_emmet_leader_key = '<C-H>'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+"let g:user_emmet_install_global = 0
+"autocmd FileType html,css EmmetInstall
+"autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " SETTINGS ####################################################################
 
@@ -149,6 +148,7 @@ nnoremap <F3> :call TrimWhiteSpace()<CR>
 " Switch between buffers
 nnoremap <leader>j :bn<CR>
 nnoremap <leader>k :bp<CR>
+nnoremap <leader>d :bw<CR>
 
 " Copy whole buffer to clipboard
 nnoremap <leader>y :w !xclip -i -sel clip<CR>
@@ -165,3 +165,5 @@ nnoremap <leader>e :e<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 
+" Expand html stuff
+imap <C-y><leader> <plug>(emmet-expand-abbr)
