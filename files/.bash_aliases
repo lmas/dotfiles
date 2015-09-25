@@ -5,7 +5,7 @@ alias ll="ls -lh"
 alias la="ls -Alh"
 alias rm="rm -I"
 alias mplayer="mplayer -fs -nolirc"
-alias music='ncmpc -h gateway'
+alias music='ncmpc -h 192.168.2.1'
 
 # create new key. supply a filename (the '-f') to store it in!
 alias sshnewkey="ssh-keygen -t dsa -C '' -f"
