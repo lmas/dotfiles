@@ -8,9 +8,16 @@ if [ -d "$HOME/.bin" ] ; then
     export PATH=$HOME/.bin:$PATH
 fi
 
-# set the gopath
+# Settings for Go
+export GOROOT=$HOME/.gobin
 export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$PATH
+if [ -d "$GOPATH" ] ; then
+    export PATH=$GOPATH/bin:$PATH
+fi
+if [ -d "$GOROOT" ] ; then
+    export PATH=$GOROOT/bin:$PATH
+fi
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
