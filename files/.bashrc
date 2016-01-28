@@ -40,6 +40,8 @@ export EDITOR=/usr/bin/vim
 # enforce encoding
 export LC_ALL="$LANG"
 
+export BKMKD_CONF="$HOME/.bkmkd.conf"
+
 # Load system wide completions
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
