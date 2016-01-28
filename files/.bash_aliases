@@ -23,6 +23,8 @@ alias dec='openssl aes-192-cbc -salt -d'
 # Mount network drive via sshfs
 alias boxmount="sshfs -p 8822 -o IdentityFile=~/.ssh/files debian-transmission@thebox:/files/ /files/"
 
+alias banner="figlet -f mono12.tlf -o"
+
 alias g='git'
 alias gsta='git status'
 alias gcom='git commit'
