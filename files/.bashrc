@@ -63,7 +63,3 @@ fi
 BASE16_SHELL="$HOME/.base16-monokai.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-# virtualenvwrapper for python
-export WORKON_HOME=~/.venvs
-export PROJECT_HOME=~/projects
-source ~/.local/bin/virtualenvwrapper.sh
