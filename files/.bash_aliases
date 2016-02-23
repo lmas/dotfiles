@@ -8,7 +8,7 @@ alias mplayer="mplayer -fs -nolirc"
 alias music='ncmpc -h 192.168.2.1'
 
 # create new key. supply a filename (the '-f') to store it in!
-alias sshnewkey="ssh-keygen -t dsa -C '' -f"
+alias sshnewkey="ssh-keygen -t ed25519 -f"
 
 # download youtube videos
 alias yt_to_mp3='echo "Enter URLS:" && youtube-dl --extract-audio --output "%(title)s.%(ext)s" --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 2 --batch-file - '
