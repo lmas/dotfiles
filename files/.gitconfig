@@ -47,4 +47,7 @@
 [user]
     email = lmasvensson@gmail.com
     name = A. Svensson
+    signingkey = 0A2FB6DC
 
+[gpg]
+    program = gpg2
