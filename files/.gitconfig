@@ -51,3 +51,14 @@
 
 [gpg]
     program = gpg2
+
+[alias]
+    branches = branch -a
+    tags = tag
+    stashes = stash list
+    remotes = remote -v
+    unstage = reset --quiet HEAD --
+    unstash = stash pop
+    amend = commit --amend
+    unmerged = diff --name-only --diff-filter=U
+
