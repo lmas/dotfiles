@@ -17,24 +17,18 @@ alias yt_to_mp3='echo "Enter URLS:" && youtube-dl --extract-audio --output "%(ti
 # Grab stream url of a youtube video
 alias yt_url='youtube-dl --prefer-insecure -g -f140 - '
 
-# Encrypt/decrypt files
-alias enc='openssl aes-192-cbc -salt -e'
-alias dec='openssl aes-192-cbc -salt -d'
-
-# Mount network drive via sshfs
-alias boxmount="sshfs -p 8822 -o IdentityFile=~/.ssh/files debian-transmission@thebox:/files/ /files/"
-
 alias banner="figlet -f mono12.tlf -o"
 
-alias g='git'
+alias fixwifi="sudo connmanctl scan wifi"
+
 alias gsta='git status'
 alias gcom='git commit'
+alias gcam='git commit --amend'
 alias gadd='git add'
 alias glog='git log --pretty=minimal'
 alias gdif='git diff'
 alias gdic='git diff --cached'
 alias gsho='git show'
 alias gche='git checkout'
-alias gres='git reset --hard'
 alias gpul='git pull'
 alias gpus='git push'
