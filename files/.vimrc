@@ -9,32 +9,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'mattn/emmet-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" Setup the jedi plugin
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = 0
-" https://github.com/davidhalter/jedi-vim/issues/179
-let g:jedi#auto_vim_configuration = 1
-" No Docstring popup, the reason to deactivate jedi#auto_vim_configuration
-" DOES NOT WORK WITH THE OTHER SETTINGS!
-"au FileType python setlocal completeopt-=preview
-
-" Setup the syntastic plugin
-let g:syntastic_error_symbol='E'
-let g:syntastic_warning_symbol='W'
-let g:syntastic_enable_balloons=0
-let g:syntastic_enable_highlighting=0
-let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': [] }
 
 " Setup the vim-go plugin
 let g:go_fmt_command = "goimports" " To let vim automagically fix imports
@@ -46,8 +25,8 @@ let g:go_highlight_build_constraints = 1
 
 " Setup the emmet-vim plugin
 let g:emmet_html5 = 1
-"let g:user_emmet_install_global = 0
-"autocmd FileType html,css EmmetInstall
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 "autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " SETTINGS ####################################################################
@@ -132,9 +111,6 @@ endfunction
 inoremap <Tab> <C-R>=CleverTab()<CR>
 "set complete+=k/usr/share/dict/american-english " Add english words
 
-nnoremap <F5> :SyntasticCheck<cr>
-nnoremap <F4> :SyntasticReset<cr>
-
 set pastetoggle=<F2> " toggles indenting of text when pasting
 nnoremap ; :
 
@@ -166,4 +142,4 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
 
 " Expand html stuff
-imap <C-y><leader> <plug>(emmet-expand-abbr)
+imap <C-x> <plug>(emmet-expand-abbr)
