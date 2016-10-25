@@ -88,7 +88,7 @@ set t_vb=
 syntax enable
 set background=dark
 let base16colorspace=256
-colorscheme base16-default
+colorscheme base16-default-dark
 
 " KEY MAPS ####################################################################
 

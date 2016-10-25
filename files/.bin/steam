@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# MAKE SURE YOU HAVE INSTALLED libgl1-nvidia-glx:i386 TOO!
+
+xhost +si:localuser:steam
+cd /home/steam
+
+# SDL_AUDIODRIVER=alsa 
+STEAM_RUNTIME=0 STEAM_FRAME_FORCE_CLOSE=1 sudo -u steam /usr/games/steam &

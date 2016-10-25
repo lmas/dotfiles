@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xhost +si:localuser:kodi
+sudo -u kodi /usr/bin/kodi &

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sshfs -o allow_other files:/ /home/files
