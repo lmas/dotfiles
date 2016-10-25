@@ -28,4 +28,5 @@ while block_for_change; do
     kill_command
     run_command
     echo -e "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n"
+    sleep 1 # Sleep and ignore any file changes for a short time (prevents multispawning the $CMD)
 done
