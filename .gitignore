@@ -1,4 +1,4 @@
-
+.dotfiles
 *.py[co]
 *.db
 *.sqlite3
