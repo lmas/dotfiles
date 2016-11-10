@@ -5,6 +5,8 @@ alias ll="ls -lh"
 alias la="ls -Alh"
 alias rm="rm -I"
 
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
 alias mplayer="mplayer -fs -nolirc"
 alias music='ncmpc -h 192.168.2.1'
 
