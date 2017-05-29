@@ -24,6 +24,8 @@ alias banner="figlet -f mono12.tlf -o"
 
 alias fixwifi="sudo connmanctl scan wifi"
 
+alias peanut="sudo netstat -peanut"
+
 alias gsta='git status'
 alias gcom='git commit'
 alias gcam='git commit --amend'
