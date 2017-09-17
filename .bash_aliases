@@ -1,6 +1,6 @@
 
 alias grep="grep --color=auto"
-alias ls="ls -F --color=auto"
+alias ls="ls -F --color=auto --time-style=+'%Y-%m-%d %H:%M'"
 alias ll="ls -lh"
 alias la="ls -Alh"
 alias rm="rm -I"
