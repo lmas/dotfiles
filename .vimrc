@@ -1,21 +1,23 @@
 
-" PLUGINS ####################################################################
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" PLUGINS ######################################################################
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'fatih/vim-go'
+" let Vundle manage itself, required
+Plugin 'https://github.com/VundleVim/Vundle.vim.git'
+Plugin 'https://github.com/chriskempson/base16-vim.git'
+Plugin 'https://github.com/fatih/vim-go.git'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
-Plugin 'mattn/emmet-vim'
+Plugin 'https://github.com/othree/html5.vim.git'
+Plugin 'https://github.com/1995eaton/vim-better-javascript-completion.git'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Setup the vim-go plugin
+" Settings for vim-go
 let g:go_fmt_command = "goimports" " To let vim automagically fix imports
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -23,13 +25,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-" Setup the emmet-vim plugin
-let g:emmet_html5 = 1
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-"autocmd FileType html,css imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" Settings for vim-better-javascript-completion
+let g:vimjs#casesensistive = 0
 
-" SETTINGS ####################################################################
+" SETTINGS #####################################################################
 
 let mapleader = " "
 "set nowrap
@@ -51,7 +50,7 @@ set matchpairs+=<:>
 set mouse=a
 
 " Hide annoying Preview buffer after autocompletion
-set completeopt=menu
+"set completeopt=menu
 
 " tabs
 set shiftwidth=4
@@ -90,7 +89,7 @@ set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
 
-" KEY MAPS ####################################################################
+" KEY MAPS #####################################################################
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "Uses dictionary and source files to find matching words to complete.
@@ -140,6 +139,3 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>e :e<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
-
-" Expand html stuff
-imap <C-x> <plug>(emmet-expand-abbr)
