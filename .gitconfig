@@ -45,7 +45,7 @@
     branch = true
 
 [user]
-    email = lmasvensson@gmail.com
+    email = github@lmas.se
     name = A. Svensson
     signingkey = 0A2FB6DC
 
