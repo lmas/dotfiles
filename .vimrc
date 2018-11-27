@@ -10,27 +10,56 @@ call vundle#begin()
 " let Vundle manage itself, required
 Plugin 'https://github.com/VundleVim/Vundle.vim.git'
 Plugin 'https://github.com/chriskempson/base16-vim.git'
-Plugin 'https://github.com/fatih/vim-go.git'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
+Plugin 'https://github.com/fatih/vim-go.git'
 Plugin 'https://github.com/othree/html5.vim.git'
 Plugin 'https://github.com/1995eaton/vim-better-javascript-completion.git'
+Plugin 'https://github.com/vim-syntastic/syntastic.git'
+Plugin 'https://github.com/maksimr/vim-jsbeautify.git'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Settings for vim-go
 let g:go_fmt_command = "goimports" " To let vim automagically fix imports
+let g:go_fmt_experimental = 1 " Experminetal setting, prevents breaking undo history
+let g:go_def_mapping_enabled = 0
+let g:go_template_autocreate = 0
+" highlights
+let g:go_highlight_operators = 1 " doesn't work??
 let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
 let g:go_highlight_build_constraints = 1
 
 " Settings for vim-better-javascript-completion
 let g:vimjs#casesensistive = 0
 
+" Settings for syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_aggregate_errors = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_echo_current_error = 0
+let g:syntastic_cursor_column = 0
+let g:syntastic_enable_signs = 0
+let g:syntastic_enable_balloons = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_css_checkers = [""] " TODO
+let g:syntastic_html_checkers = [""] " TODO
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": ["css", "html", "javascript"] }
+
+" Settings for vim-jsbeautify
+au BufWritePre *.{js} :call JsBeautify()
+au BufWritePre *.{json} :call JsonBeautify()
+au BufWritePre *.{css} :call CSSBeautify()
+au BufWritePre *.{html} :call HtmlBeautify()
+
 " SETTINGS #####################################################################
 
-let mapleader = " "
 "set nowrap
 set relativenumber
 set ruler
@@ -49,28 +78,21 @@ set showmatch
 set matchpairs+=<:>
 set mouse=a
 
-" Hide annoying Preview buffer after autocompletion
-"set completeopt=menu
+" Shows autocompletion menu (even for single suggestions) and hides anoying
+" preview buffer
+set completeopt=menuone
 
 " tabs
-set shiftwidth=4
-set softtabstop=4
+set nolist " don't show tabs/newlines
+set shiftwidth=8
+set softtabstop=8
 set expandtab
 set autoindent
 set copyindent
-" show tabs and trailing spaces
-set list
-set listchars=tab:>-,trail:-
-
-"Hide whitespace chars in go files
-au Filetype go setlocal nolist
-au Filetype go setlocal softtabstop=8
-au Filetype go setlocal shiftwidth=8
 
 " searching
 set ignorecase " ignore case when searching
 set smartcase  " ignore case if pattern is all lower, else case-sensitive
-"set nohlsearch   " highlight search terms
 set incsearch  " show search matches as you type
 
 " keep no backups
@@ -90,6 +112,8 @@ let base16colorspace=256
 colorscheme base16-default-dark
 
 " KEY MAPS #####################################################################
+
+let mapleader = " "
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 "Uses dictionary and source files to find matching words to complete.

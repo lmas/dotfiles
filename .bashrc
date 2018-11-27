@@ -18,6 +18,11 @@ if [ -d "$GOROOT" ] ; then
     export PATH=$GOROOT/bin:$PATH
 fi
 
+# Settings for npm
+if [ -d "$HOME/.npm/packages/bin" ] ; then
+    export PATH=$PATH:$HOME/.npm/packages/bin
+fi
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
