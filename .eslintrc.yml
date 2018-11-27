@@ -1,0 +1,28 @@
+env:
+    browser: true
+    es6: true
+extends: 'eslint:recommended'
+parserOptions:
+    ecmaVersion: 9
+    sourceType: script
+    ecmaFeatures:
+        impliedStrict: true
+rules:
+    indent:
+        - off
+        - tab
+    linebreak-style:
+        - warn
+        - unix
+    quotes:
+        - warn
+        - double
+    semi:
+        - warn
+        - always
+    no-console:
+        - off
+    no-unused-vars:
+        - off
+    no-undef:
+        - off
