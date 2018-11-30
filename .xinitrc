@@ -18,5 +18,5 @@ xset -b
 redshift -l 57:11 -b 0.9 &
 
 # start the WM
-exec spectrwm
+exec bspwm
 

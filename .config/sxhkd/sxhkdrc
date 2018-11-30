@@ -1,0 +1,41 @@
+# wm independent hotkeys
+
+# terminal emulator
+super + Return
+	urxvt
+
+# program launcher
+super + @c
+	dmenu_run
+
+# make sxhkd reload its configuration files:
+super + shift + w
+	pkill -USR1 -x sxhkd
+
+# bspwm hotkeys
+
+# quit bspwm normally
+super + shift + q
+	bspc quit
+
+# close and kill
+super + q
+	bspc node -k
+
+# swap the current node and the biggest node
+super + shift + Return
+	bspc node -s biggest.local
+
+# focus/swap
+
+# focus the next/previous node in the current desktop
+super + {_,shift + }Tab
+	bspc node -f {next,prev}.local
+
+# focus the next/previous desktop in the current monitor
+super + {z,x}
+	bspc desktop -f {prev,next}.local
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
