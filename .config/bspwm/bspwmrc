@@ -1,13 +1,11 @@
 #! /bin/sh
 
-# Start grabbing hotkeys
-sxhkd &
-
 # WM Style
 bspc monitor -d 0 1 2 3 4 5 6 7 8 9
-bspc config border_width         1
+bspc config border_width 1
 bspc config focused_border_color "#4c7899"
-bspc config window_gap           0
+bspc config window_gap 0
+bspc config top_padding 10
 
 # Mouse
 bspc config focus_follows_pointer false
@@ -15,11 +13,17 @@ bspc config click_to_focus any
 bspc config swallow_first_click true
 
 # WM behaviour
-bspc config split_ratio          0.5
-bspc config automatic_scheme     longest_side
+bspc config split_ratio 0.5
+bspc config automatic_scheme longest_side
 bspc config initial_polarity second_child
 bspc config ignore_ewmh_focus true
 bspc config ignore_ewmh_fullscreen all
 
 # Custom behaviour for apps
 bspc rule -a Firefox-esr desktop='^1'
+
+# Start grabbing hotkeys
+sxhkd &
+
+# show panel
+~/.config/bspwm/panel | lemonbar -g x10 -d -u 0 -a 0 -p &
