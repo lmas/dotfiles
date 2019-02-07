@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Clock() {
+Time() {
         DATETIME=$(date "+%Y-%m-%d %H:%M:%S")
         echo -n "$DATETIME"
 }
@@ -19,6 +19,6 @@ Window() {
 }
 
 while true; do
-        echo "%{l}$(Desktop) %{c}$(Window) %{r}$(Clock)"
+        echo "%{l}$(Desktop)   $(Time)   $(Window)"
         sleep 1
 done
