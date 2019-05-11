@@ -14,8 +14,6 @@ Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'https://github.com/fatih/vim-go.git'
 Plugin 'https://github.com/othree/html5.vim.git'
 Plugin 'https://github.com/1995eaton/vim-better-javascript-completion.git'
-Plugin 'https://github.com/vim-syntastic/syntastic.git'
-Plugin 'https://github.com/maksimr/vim-jsbeautify.git'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -35,28 +33,6 @@ let g:go_highlight_build_constraints = 1
 
 " Settings for vim-better-javascript-completion
 let g:vimjs#casesensistive = 0
-
-" Settings for syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_aggregate_errors = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_echo_current_error = 0
-let g:syntastic_cursor_column = 0
-let g:syntastic_enable_signs = 0
-let g:syntastic_enable_balloons = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_css_checkers = [""] " TODO
-let g:syntastic_html_checkers = [""] " TODO
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": ["css", "html", "javascript"] }
-
-" Settings for vim-jsbeautify
-au BufWritePre *.{js} :call JsBeautify()
-au BufWritePre *.{json} :call JsonBeautify()
-au BufWritePre *.{css} :call CSSBeautify()
-au BufWritePre *.{html} :call HtmlBeautify()
 
 " SETTINGS #####################################################################
 
