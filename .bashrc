@@ -1,9 +1,5 @@
 
 # Add user dirs to PATH
-if [ -d "$HOME/.local/.bin" ] ; then
-    export PATH=$HOME/.local/.bin:$PATH
-fi
-
 if [ -d "$HOME/.bin" ] ; then
     export PATH=$HOME/.bin:$PATH
 fi
@@ -17,12 +13,6 @@ fi
 if [ -d "$GOROOT" ] ; then
     export PATH=$GOROOT/bin:$PATH
 fi
-
-# Settings for npm
-if [ -d "$HOME/.npm/packages/bin" ] ; then
-    export PATH=$PATH:$HOME/.npm/packages/bin
-fi
-
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
