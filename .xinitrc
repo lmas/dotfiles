@@ -1,5 +1,15 @@
 #!/bin/bash
 
+cat << EOF | xrdb -merge
+URxvt.utf8: 1
+URxvt.locale: true
+URxvt.font: xft:Terminus:size=8
+URxvt.scrollBar: False
+! Disable perl extensions for security and speed
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+EOF
+
 # turn on numlock keys
 numlockx on
 
@@ -8,15 +18,14 @@ xset s off
 xset -dpms
 xset s noblank
 
-# custom script to fix mouse
-setmousespeed
-
-# no more beeping bells
+# disable beeping bells
 xset -b
 
 # dimm the lights
 redshift -l 57:11 -b 0.9 &
 
-# start the WM
+# start the WM (hotkeys, panel, manager)
+sxhkd &
+~/.config/bspwm/panel | lemonbar -g x10 -d -u 0 -a 0 -p &
 exec bspwm
 

@@ -21,9 +21,5 @@ bspc config ignore_ewmh_fullscreen all
 
 # Custom behaviour for apps
 bspc rule -a Firefox-esr desktop='^1'
+bspc rule -a Peek state=floating center=true
 
-# Start grabbing hotkeys
-sxhkd &
-
-# show panel
-~/.config/bspwm/panel | lemonbar -g x10 -d -u 0 -a 0 -p &

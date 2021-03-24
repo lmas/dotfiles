@@ -2,7 +2,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	exec urxvt
 
 # program launcher
 super + c

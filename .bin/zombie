@@ -1,6 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
+# Need to keep this as a sep. script file for dmenu
 sudo pm-suspend
-
-amixer -c Omega -q set PCM 0 > /dev/null 2>&1
-amixer -c Omega -q set PCM 40 > /dev/null 2>&1

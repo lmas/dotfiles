@@ -2,3 +2,4 @@
 # Set vi keys
 set editing-mode vi
 set keymap vi-insert
+set bell-style none
