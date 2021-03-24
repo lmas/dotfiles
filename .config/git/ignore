@@ -3,6 +3,7 @@
 *.db
 *.sqlite3
 *.dat
-.coverage
+.cover.out
+.cover.html
 tmp/
 vendor/
