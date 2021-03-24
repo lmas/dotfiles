@@ -1,3 +1,14 @@
 *
+
+!aseprite/
+!bspwm/
+!fish/
+!git/
+!godot/
 !htop/
+!sxhkd/
+
+!kritadisplayrc
+!kritarc
+!kritashortcutsrc
 !user-dirs.dirs

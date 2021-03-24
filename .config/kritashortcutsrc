@@ -1,0 +1,9 @@
+[Shortcuts]
+KisToolSelectRectangular=M
+KritaShape/KisToolLine=L
+deselect=Ctrl+D
+edit_redo=Ctrl+R
+make_brush_color_darker=none
+make_brush_color_lighter=none
+view_zoom_in=Ctrl++; <
+view_zoom_out=Ctrl+-; >
