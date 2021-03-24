@@ -12,7 +12,9 @@ Plugin 'https://github.com/VundleVim/Vundle.vim.git'
 Plugin 'https://github.com/chriskempson/base16-vim.git'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 Plugin 'https://github.com/fatih/vim-go.git'
+Plugin 'https://github.com/dag/vim-fish.git'
 Plugin 'https://github.com/othree/html5.vim.git'
+Plugin 'https://github.com/alvan/vim-closetag'
 Plugin 'https://github.com/1995eaton/vim-better-javascript-completion.git'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -34,12 +36,16 @@ let g:go_highlight_build_constraints = 1
 " Settings for vim-better-javascript-completion
 let g:vimjs#casesensistive = 0
 
+" Settings for vim-closetag
+let g:closetag_filetypes = 'html,xhtml,tmpl'
+let g:closetag_emptyTags_caseSensitive = 0
+
 " SETTINGS #####################################################################
 
 "set nowrap
 set relativenumber
 set ruler
-set colorcolumn=80
+set colorcolumn=120
 set showcmd
 set showmode
 set modelines=0
@@ -81,11 +87,10 @@ set noerrorbells
 set visualbell
 set t_vb=
 
-" colorscheme
+" Color scheme
 syntax enable
-set background=dark
 let base16colorspace=256
-colorscheme base16-default-dark
+colorscheme base16-monokai
 
 " KEY MAPS #####################################################################
 
@@ -132,6 +137,13 @@ nnoremap <leader>p :r !xclip -o -sel clip<CR>
 
 " Allow saving of files as sudo when one forget to start vim using sudo
 nnoremap <leader>W :w !sudo tee > /dev/null %<CR>
+
+" Spellchecking
+nnoremap <leader>v :setlocal spell spelllang=en_gb<CR>
+nnoremap <leader>b z=
+
+" Show message list (from plugins for example)
+nnoremap <leader>m :messages<CR>
 
 " Various simple shortcuts
 nnoremap <leader>s :%s/
