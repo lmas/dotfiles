@@ -1,0 +1,32 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR fish_color_autosuggestion:a59f85
+SETUVAR fish_color_cancel:a1efe4
+SETUVAR fish_color_command:f92672
+SETUVAR fish_color_comment:75715e
+SETUVAR fish_color_cwd:66d9ef
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:f8f8f2
+SETUVAR fish_color_error:f8f8f2\x1e\x2d\x2dbackground\x1ef92672
+SETUVAR fish_color_escape:66d9ef
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:a6e22e
+SETUVAR fish_color_host_remote:f92672
+SETUVAR fish_color_keyword:ae81ff
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:f8f8f2
+SETUVAR fish_color_operator:f92672
+SETUVAR fish_color_param:f8f8f2
+SETUVAR fish_color_quote:a6e22e
+SETUVAR fish_color_redirection:ae81ff
+SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d49483e
+SETUVAR fish_color_selection:f8f8f2\x1e\x2d\x2dbackground\x1e49483e
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:f8f8f2
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell
+SETUVAR fish_pager_color_completion:a59f85
+SETUVAR fish_pager_color_description:49483e
+SETUVAR fish_pager_color_prefix:f8f8f2
+SETUVAR fish_pager_color_progress:f8f8f2
