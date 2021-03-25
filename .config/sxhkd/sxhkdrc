@@ -6,7 +6,7 @@ super + Return
 
 # program launcher
 super + c
-	dmenu_run
+	exec dmenu_run
 
 # make sxhkd reload its configuration files:
 super + shift + w

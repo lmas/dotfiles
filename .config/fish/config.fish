@@ -1,31 +1,30 @@
 
+####################################################################################################
+# Environment
+
+set -gx GOROOT "$HOME/.gobin"
+if test -d "$GOROOT"
+        set -gx PATH $PATH $GOROOT/bin
+end
+set -gx GOPATH "$HOME/.go"
+if test -d "$GOPATH"
+        set -gx PATH $PATH $GOPATH/bin
+end
+if test -d "$HOME/.bin"
+        set -gx PATH $PATH $HOME/.bin
+end
+
+set -gx EDITOR /usr/bin/vim
+set -gx PAGER /usr/bin/less
+set -gx LC_ALL $LANG
+
+####################################################################################################
+
 if status --is-login
 	if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
 		exec ssh-agent startx >/dev/null 2>&1
 	end
 else if status --is-interactive
-
-        ####################################################################################################
-        # Environment
-
-        set -gx GOROOT "$HOME/.gobin"
-        if test -d "$GOROOT"
-                set -gx PATH $PATH $GOROOT/bin
-        end
-        set -gx GOPATH "$HOME/.go"
-        if test -d "$GOPATH"
-                set -gx PATH $PATH $GOPATH/bin
-        end
-        if test -d "$HOME/.bin"
-                set -gx PATH $PATH $HOME/.bin
-        end
-
-        set -gx EDITOR /usr/bin/vim
-        set -gx PAGER /usr/bin/less
-
-        # Enforce lang
-        set -gx LC_ALL $LANG
-
         # Set vi mode
         set -g fish_key_bindings fish_vi_key_bindings
 
@@ -33,9 +32,6 @@ else if status --is-interactive
         eval sh "$__fish_config_dir/base16-monokai.sh"
         # Fish colors
         #source "$__fish_config_dir/base16-monokai.fish"
-
-        ####################################################################################################
-        # Aliases
 
         alias grep      "grep --color=auto"
         alias ls        "ls -F --color=auto --time-style=+'%Y-%m-%d %H:%M' --group-directories-first"
@@ -174,9 +170,9 @@ function fish_right_prompt
                 end
 
                 set_color --background normal $fish_color_autosuggestion
-                echo -n "$git_branch "
+                echo -n "$git_branch"
         end
 
-        echo -n (date "+%H:%M")
+        echo -n "" (date "+%H:%M") # "" adds an extra space (padding to either the time or git output)
         set_color normal
 end
