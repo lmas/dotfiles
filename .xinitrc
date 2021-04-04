@@ -3,7 +3,7 @@
 cat << EOF | xrdb -merge
 URxvt.utf8: 1
 URxvt.locale: true
-URxvt.font: xft:Terminus:size=8
+URxvt.font: xft:Roboto Mono:style=medium:size=8:, xft:Terminus:size-8
 URxvt.scrollBar: False
 ! Disable perl extensions for security and speed
 URxvt.perl-ext:
