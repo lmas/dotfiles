@@ -2,7 +2,7 @@
 
 # terminal emulator
 super + Return
-	exec urxvt
+	exec sakura
 
 # program launcher
 super + c
