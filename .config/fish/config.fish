@@ -14,7 +14,7 @@ if test -d "$HOME/.bin"
         set -gx PATH $PATH $HOME/.bin
 end
 
-set -gx EDITOR /usr/bin/vim
+set -gx EDITOR /home/lmas/.bin/nvim
 set -gx PAGER /usr/bin/less
 set -gx LC_ALL $LANG
 
@@ -33,6 +33,7 @@ else if status --is-interactive
         # Fish colors
         #source "$__fish_config_dir/base16-monokai.fish"
 
+        alias vim       "nvim"
         alias grep      "grep --color=auto"
         alias ls        "ls -F --color=auto --time-style=+'%Y-%m-%d %H:%M' --group-directories-first"
         alias ll        "ls -lh"
