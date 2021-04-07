@@ -20,7 +20,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'preservim/nerdcommenter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
 Plug 'alvan/vim-closetag'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
@@ -132,6 +132,13 @@ set noerrorbells
 set visualbell
 set t_vb=
 
+" Remove trailing white spaces on buffer writes for all file types
+function TrimWhiteSpace()
+  %s/\s*$//
+  ''
+endfunction
+autocmd BufWritePre * call TrimWhiteSpace()
+
 "###################################################################################################
 " KEY MAPPINGS
 
@@ -140,13 +147,6 @@ nnoremap ; :
 
 " toggles indenting of text when pasting
 set pastetoggle=<F2>
-
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-endfunction
-nnoremap <F3> :call TrimWhiteSpace()<CR>
 
 " Switch between buffers
 nnoremap <Tab>     :bn<CR>
@@ -174,6 +174,13 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>e :e<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :q!<CR>
+
+" Clears the LSP errors
+nnoremap <silent><expr> <leader>t ClearLSP()
+
+function! ClearLSP()
+         lua vim.lsp.diagnostic.clear(0)
+endfunction
 
 " Tab completion
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
