@@ -115,6 +115,7 @@ set softtabstop=8
 set expandtab
 set autoindent
 set copyindent
+autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2
 
 " searching
 set nohlsearch
