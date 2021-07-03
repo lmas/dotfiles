@@ -20,6 +20,6 @@ bspc config ignore_ewmh_focus true
 bspc config ignore_ewmh_fullscreen all
 
 # Custom behaviour for apps
-bspc rule -a Firefox-esr desktop='^1'
+bspc rule -a Firefox desktop='^1'
 bspc rule -a Peek state=floating center=true
 
