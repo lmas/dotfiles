@@ -1,29 +1,16 @@
 
-####################################################################################################
-# Environment
-
-set -gx GOROOT "$HOME/.gobin"
-if test -d "$GOROOT"
-        set -gx PATH $PATH $GOROOT/bin
-end
-set -gx GOPATH "$HOME/.go"
-if test -d "$GOPATH"
-        set -gx PATH $PATH $GOPATH/bin
-end
-if test -d "$HOME/.bin"
-        set -gx PATH $PATH $HOME/.bin
-end
-
-set -gx EDITOR /home/lmas/.bin/nvim
-set -gx PAGER /usr/bin/less
-set -gx LC_ALL $LANG
-
-####################################################################################################
-
 if status --is-login
-	if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
-		exec ssh-agent startx >/dev/null 2>&1
-	end
+        set -gx GOPATH "$HOME/.go"
+        if test -d "$GOPATH/bin"
+                set -gx PATH $PATH $GOPATH/bin
+        end
+
+        set -gx EDITOR /usr/local/bin/nvim
+        set -gx PAGER /usr/bin/less
+        set -gx LC_ALL $LANG
+
+	exec ssh-agent startx >/dev/null 2>&1
+
 else if status --is-interactive
         # Set vi mode
         set -g fish_key_bindings fish_vi_key_bindings
@@ -35,7 +22,7 @@ else if status --is-interactive
 
         alias vim       "nvim"
         alias grep      "grep --color=auto"
-        alias ls        "ls -F --color=auto --time-style=+'%Y-%m-%d %H:%M' --group-directories-first"
+        alias ls        "ls -F --color=auto -D '%Y-%m-%d %H:%M'" #--group-directories-first"
         alias ll        "ls -lh"
         alias la        "ls -Alh"
         alias rm        "rm -I"
@@ -53,7 +40,7 @@ else if status --is-interactive
         alias gpul      "git pull"
         alias gpus      "git push"
 
-        alias dotfiles  "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+        alias dotfiles  "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
         alias peanut    "sudo netstat -peanut"
 
         # create new key. supply a filename (the "-f") to store it in!
