@@ -8,6 +8,7 @@ if status --is-login
         set -gx EDITOR /usr/local/bin/nvim
         set -gx PAGER /usr/bin/less
         set -gx LC_ALL $LANG
+        set -gx XDG_RUNTIME_DIR /tmp/xdgruntime
 
 	exec ssh-agent startx >/dev/null 2>&1
 
@@ -22,7 +23,7 @@ else if status --is-interactive
 
         alias vim       "nvim"
         alias grep      "grep --color=auto"
-        alias ls        "ls -F --color=auto -D '%Y-%m-%d %H:%M'" #--group-directories-first"
+        alias ls        "ls -F --color=auto -D \"%Y-%m-%d %H:%M\"" #--group-directories-first"
         alias ll        "ls -lh"
         alias la        "ls -Alh"
         alias rm        "rm -I"
@@ -48,7 +49,7 @@ else if status --is-interactive
         alias addkey    "ssh-add -t 4w"
 
         # download youtube videos
-        alias yt_to_mp3 "echo 'Enter URLS:' && youtube-dl --extract-audio --output '%(title)s.%(ext)s' --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 9 --batch-file - "
+        alias yt_to_mp3 "echo \"Enter URLS:\" && youtube-dl --extract-audio --output \"%(title)s.%(ext)s\" --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 9 --batch-file - "
         # Grab stream url of a youtube video
         alias yt_url    "youtube-dl --prefer-insecure -g -f140 - "
 end
