@@ -32,6 +32,9 @@
 [merge]
         tool = vimdiff
 
+[pull]
+        rebase = false
+
 [mergetool]
         prompt = true
 
