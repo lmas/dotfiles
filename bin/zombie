@@ -1,4 +1,5 @@
 #!/bin/sh
 
 # Need to keep this as a sep. script file for dmenu
-sudo pm-suspend
+#sudo pm-suspend
+doas acpiconf -s 3
