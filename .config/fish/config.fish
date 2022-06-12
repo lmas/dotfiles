@@ -10,6 +10,10 @@ if status --is-login
         set -gx LC_ALL $LANG
         set -gx XDG_RUNTIME_DIR /tmp/xdgruntime
 
+	# Force faster shell for sxhkd (fix problems and performance)
+	set -gx SXHKD_SHELL sh
+
+	# If no X server, will kick out the user when trying to login
 	exec ssh-agent startx >/dev/null 2>&1
 
 else if status --is-interactive

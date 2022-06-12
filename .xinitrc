@@ -23,8 +23,8 @@ xset -b
 # dimm the lights
 redshift -l 57:11 -b 0.9 &
 
-# start the WM (hotkeys, panel, manager)
-sxhkd &
+# start the WM (panel, hotkeys, manager)
 ~/.config/bspwm/panel | lemonbar -g x10 -d -u 0 -a 0 -p &
+sxhkd &
 exec bspwm
 
