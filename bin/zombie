@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # Need to keep this as a sep. script file for dmenu
-#sudo pm-suspend
-doas acpiconf -s 3
+#sudo pm-suspend   # Linux
+doas acpiconf -s 3 # FreeBSD
