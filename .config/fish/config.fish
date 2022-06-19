@@ -58,6 +58,9 @@ else if status --is-interactive
         alias yt_url    "youtube-dl --prefer-insecure -g -f140 - "
 end
 
+# Fix weird issue with FreeBSD, symlinking /home to /usr/home and prompt_pwd not shortening home path to ~
+cd ~
+
 ####################################################################################################
 # Special fish functions
 
