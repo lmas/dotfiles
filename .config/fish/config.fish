@@ -59,7 +59,7 @@ else if status --is-interactive
 end
 
 # Fix weird issue with FreeBSD, symlinking /home to /usr/home and prompt_pwd not shortening home path to ~
-cd ~
+cd
 
 ####################################################################################################
 # Special fish functions
