@@ -14,7 +14,7 @@
 
 " Download 'github.com/junegunn/vim-plug/master/plug.vim' to: ~/.local/share/nvim/site/autoload/plug.vim
 call plug#begin('~/.config/nvim/plugins')
-Plug 'chriskempson/base16-vim'
+Plug 'base16-project/base16-vim'
 Plug 'bling/vim-bufferline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -42,7 +42,7 @@ let g:airline_theme='base16'
 set noshowmode
 set background=dark
 let base16colorspace=256
-colorscheme base16-monokai
+colorscheme base16-gruvbox-dark-hard
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 1
