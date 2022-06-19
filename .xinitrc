@@ -1,12 +1,13 @@
 #!/bin/sh
 
 # Set correct monitor and resolution
-if [ "$(sysctl -n dev.acpi_dock.0.status)" -eq "1" ]; then
-        # Docked, set primary monitor to the bigger ext. screen
-        xrandr --output LVDS-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0
+xrandr -q | grep -q "HDMI-2 connected"
+if [ $? -eq 0 ]; then
+        #echo "connected"
+        xrandr --output eDP-1 --off --output HDMI-2 --primary --mode 1920x1080
 else
-        # Undocked (not really needed but eh)
-        xrandr --output LVDS-1 --primary --mode 1280x800 --pos 0x0 --output HDMI-2 --off
+        #echo "disconnected"
+        xrandr --output eDP-1 --primary --output HDMI-2 --off
 fi
 
 # turn on numlock keys
