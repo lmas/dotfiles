@@ -21,9 +21,7 @@ else if status --is-interactive
         set -g fish_key_bindings fish_vi_key_bindings
 
         # Shell colors
-        eval sh "$__fish_config_dir/base16-monokai.sh"
-        # Fish colors
-        #source "$__fish_config_dir/base16-monokai.fish"
+        eval sh "$__fish_config_dir/base16-gruvbox.sh"
 
         alias vim       "nvim"
         alias grep      "grep --color=auto"
