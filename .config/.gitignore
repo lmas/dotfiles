@@ -1,11 +1,13 @@
 *
 
+!alacritty/
 !aseprite/
 !bspwm/
 !fish/
 !git/
 !godot/
 !htop/
+!nvim/
 !sxhkd/
 
 !kritadisplayrc

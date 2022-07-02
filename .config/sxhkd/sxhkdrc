@@ -2,7 +2,7 @@
 
 # terminal emulator
 super + Return
-	exec sakura
+	exec terminal
 
 # program launcher
 super + c
