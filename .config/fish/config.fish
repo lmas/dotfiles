@@ -5,6 +5,7 @@ if status --is-login
                 set -gx PATH $PATH $GOPATH/bin
         end
 
+        set -gx BROWSER /usr/local/bin/firefox
         set -gx EDITOR /usr/local/bin/nvim
         set -gx PAGER /usr/bin/less
         set -gx LC_ALL $LANG
@@ -20,8 +21,8 @@ else if status --is-interactive
         # Set vi mode
         set -g fish_key_bindings fish_vi_key_bindings
 
-        # Shell colors
-        eval sh "$__fish_config_dir/base16-gruvbox.sh"
+        # Default shell colors
+        eval sh "$__fish_config_dir/base16-gruvbox-dark-hard.sh"
 
         alias vim       "nvim"
         alias grep      "grep --color=auto"
@@ -49,6 +50,9 @@ else if status --is-interactive
         # create new key. supply a filename (the "-f") to store it in!
         alias newkey    "ssh-keygen -t ed25519 -f"
         alias addkey    "ssh-add -t 4w"
+
+        alias darkmode "eval sh '$__fish_config_dir/base16-gruvbox-dark-hard.sh'"
+        alias lightmode "eval sh '$__fish_config_dir/base16-gruvbox-light-hard.sh'"
 
         # download youtube videos
         alias yt_to_mp3 "echo \"Enter URLS:\" && youtube-dl --extract-audio --output \"%(title)s.%(ext)s\" --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 9 --batch-file - "
