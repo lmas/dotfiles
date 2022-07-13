@@ -14,8 +14,10 @@ if status --is-login
 	# Force faster shell for sxhkd (fix problems and performance)
 	set -gx SXHKD_SHELL sh
 
-	# If no X server, will kick out the user when trying to login
-	exec ssh-agent startx >/dev/null 2>&1
+	# Start X server if it's installed, land in shell if not
+	if pkg info -e xorg-server
+            exec ssh-agent startx >/dev/null 2>&1
+	end
 
 else if status --is-interactive
         # Set vi mode
