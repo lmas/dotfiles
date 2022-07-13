@@ -30,8 +30,6 @@ else if status --is-interactive
         alias ll        "ls -lh"
         alias la        "ls -Alh"
         alias rm        "rm -I"
-        alias du        "du -h"
-        alias df        "df -h"
         alias gsta      "git status"
         alias gcom      "git commit"
         alias gcam      "git commit --amend"
@@ -39,13 +37,14 @@ else if status --is-interactive
         alias glog      "git log --pretty=minimal"
         alias gdif      "git diff"
         alias gdic      "git diff --cached"
-        alias gsho      "git show"
-        alias gche      "git checkout"
-        alias gpul      "git pull"
-        alias gpus      "git push"
+        alias gres      "git restore"           # check out prevoius commit of file
+        alias gswit     "git switch"            # switch branch
+        alias gshow     "git show"              # show latest/specific commit and it's changes
+        alias gpull     "git pull"              # pull remote changes
+        alias gpush     "git push"              # push changes to remote
 
         alias dotfiles  "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-        alias peanut    "sudo netstat -peanut"
+        #alias peanut    "sudo netstat -peanut"
 
         # create new key. supply a filename (the "-f") to store it in!
         alias newkey    "ssh-keygen -t ed25519 -f"
@@ -55,9 +54,9 @@ else if status --is-interactive
         alias lightmode "eval sh '$__fish_config_dir/base16-gruvbox-light-hard.sh'"
 
         # download youtube videos
-        alias yt_to_mp3 "echo \"Enter URLS:\" && youtube-dl --extract-audio --output \"%(title)s.%(ext)s\" --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 9 --batch-file - "
+        #alias yt_to_mp3 "echo \"Enter URLS:\" && youtube-dl --extract-audio --output \"%(title)s.%(ext)s\" --restrict-filenames --audio-format mp3 --add-metadata --sleep-interval 9 --batch-file - "
         # Grab stream url of a youtube video
-        alias yt_url    "youtube-dl --prefer-insecure -g -f140 - "
+        #alias yt_url    "youtube-dl --prefer-insecure -g -f140 - "
 end
 
 # Fix weird issue with FreeBSD, symlinking /home to /usr/home and prompt_pwd not shortening home path to ~
