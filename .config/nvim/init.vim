@@ -1,18 +1,7 @@
 
-
-" Vim doesn't play very nice with fish?
-"if &shell =~# 'fish$'
-    "set shell=sh
-"endif
-
-" Plug '1995eaton/vim-better-javascript-completion'
-"Plugin 'https://github.com/othree/html5.vim.git'
-
-
 "###################################################################################################
 "PLUGINS
 
-" Download 'github.com/junegunn/vim-plug/master/plug.vim' to: ~/.local/share/nvim/site/autoload/plug.vim
 call plug#begin('~/.config/nvim/plugins')
 Plug 'base16-project/base16-vim'
 Plug 'bling/vim-bufferline'
@@ -21,17 +10,15 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
-Plug 'alvan/vim-closetag'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
 Plug 'fatih/vim-go'
+Plug 'alvan/vim-closetag'
+"Plug '1995eaton/vim-better-javascript-completion'
+"Plug 'othree/html5.vim'
 "Plug 'dag/vim-fish'
 call plug#end()
-
-"These two are already set by plug#end
-"syntax enable
-"filetype plugin indent on
 
 "###################################################################################################
 "PLUGIN SETTINGS
@@ -40,7 +27,7 @@ call plug#end()
 let g:bufferline_echo = 0
 let g:airline_theme='base16'
 set noshowmode
-set background=dark
+" set background=dark
 let base16colorspace=256
 colorscheme base16-gruvbox-dark-hard
 
@@ -66,8 +53,7 @@ let g:compe.source.nvim_lsp = v:true
 let g:compe.source.nvim_lua = v:true
 
 " vim-go
-" gopls is already being run by the lsp plugin, disable running yet another copy
-let g:go_gopls_enabled = 0
+let g:go_gopls_enabled = 0 " gopls is already being run by the lsp plugin, disable running yet another copy
 let g:go_code_completion_enabled = 0
 let g:go_echo_go_info = 0 " fix some weird message from completion
 let g:go_fmt_command = "goimports"
@@ -82,15 +68,19 @@ let g:go_highlight_fields = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_build_constraints = 1
 
-"" Settings for vim-better-javascript-completion
-" let g:vimjs#casesensistive = 0
-
-"" Settings for vim-closetag
+" vim-closetag
 let g:closetag_filetypes = 'html,tmpl'
 let g:closetag_emptyTags_caseSensitive = 0
 
+" vim-better-javascript-completion
+" let g:vimjs#casesensistive = 0
+
 "###################################################################################################
 " GENERAL SETTINGS
+
+"These two are already set by plug#end
+"syntax enable
+"filetype plugin indent on
 
 set relativenumber
 set ruler
@@ -110,11 +100,12 @@ set mouse=a
 
 " tabs
 set nolist " don't show tabs/newlines
-set shiftwidth=8
-set softtabstop=8
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 set autoindent
 set copyindent
+autocmd Filetype go setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2
 
 " searching
@@ -187,19 +178,12 @@ endfunction
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 imap <expr>       <Tab>     TabComplete()
 imap <expr>       <S-Tab>     TabCompletePrev()
-" inoremap <silent>       <Tab>     <C-r>=TabComplete()<CR>
-" inoremap <silent>       <S-Tab>   <C-r>=TabCompletePrev()<CR>
-" inoremap <silent><expr> <C-space> compe#complete()
-" inoremap <silent><expr> <TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><S-TAB>          pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! TabComplete()
         if pumvisible()
                 return "\<C-n>"
         elseif strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
                 return "\<Tab>"
-        " elseif vsnip#available(1)
-                " return "\<Plug>(vsnip-expand-or-jump)"
         else
                 call compe#complete()
                 return "\<C-y>"
@@ -209,8 +193,6 @@ endfunction
 function! TabCompletePrev()
         if pumvisible()
                 return "\<C-p>"
-        " elseif vsnip#jumpable(-1)
-                " return "\<Plug>(vsnip-jump-prev)"
         else
                 return "\<S-Tab>"
         end
