@@ -107,6 +107,7 @@ set autoindent
 set copyindent
 autocmd Filetype go setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype yaml setlocal shiftwidth=2 softtabstop=2
+autocmd Filetype markdown,text setlocal spell spelllang=en_gb
 
 " searching
 set nohlsearch

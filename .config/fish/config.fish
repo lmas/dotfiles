@@ -34,16 +34,15 @@ else if status --is-interactive
         alias rm        "rm -I"
         alias gsta      "git status"
         alias gcom      "git commit"
-        alias gcam      "git commit --amend"
         alias gadd      "git add"
         alias glog      "git log --pretty=minimal"
         alias gdif      "git diff"
         alias gdic      "git diff --cached"
         alias gres      "git restore"           # check out prevoius commit of file
-        alias gswit     "git switch"            # switch branch
-        alias gshow     "git show"              # show latest/specific commit and it's changes
-        alias gpull     "git pull"              # pull remote changes
-        alias gpush     "git push"              # push changes to remote
+        alias gswi      "git switch"            # switch branch
+        alias gsho      "git show"              # show latest/specific commit and it's changes
+        alias gpul      "git pull"              # pull remote changes
+        alias gpus      "git push"              # push changes to remote
 
         alias dotfiles  "git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
         #alias peanut    "sudo netstat -peanut"
