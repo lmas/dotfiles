@@ -67,3 +67,5 @@
 
 [receive]
         advertisePushOptions = true
+[init]
+	defaultBranch = master
