@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# Heavily based on https://github.com/thameera/vimv,
+# but ported to POSIX sh with misc. improvements
+# and simplifications.
+
+set -eu
+
+panic() {
+    echo "ERROR: $1" >&2
+    exit 1
+}
+
+# Get a list of files to rename
+if [ "$#" -eq 0 ]; then
+    SRC=$(ls -1)
+else
+    SRC=$(printf "%s\n" "$@") # Expands the cmd args, using newlines
+fi
+
+SRCNO=$(printf "%s" "$SRC" | wc -l)
+if [ "$SRCNO" -eq 0 ]; then
+    panic "No files to rename."
+fi
+
+# Open the list of files in an editor and let the user rename files
+TEMPO=$(mktemp)
+# 0=exit, 1=hangup, 2=interrupt, 3=quit, 15=terminate
+trap 'rm -f $TEMPO' 0 1 2 3 15
+echo "$SRC" > "$TEMPO"
+${EDITOR:-vi} "$TEMPO"
+
+# Get the edited list with (possibly) new file names
+DST=$(cat "$TEMPO")
+DSTNO=$(printf "%s" "$DST" | wc -l)
+if [ "$SRCNO" -ne "$DSTNO" ]; then
+    panic "Number of files changed, aborting..."
+fi
+
+# Rename all files with new names
+count="0"
+while [ -n "$SRC" ]; do
+    srcfile=$(echo "$SRC" | head -n 1)
+    dstfile=$(echo "$DST" | head -n 1)
+    SRC=$(echo "$SRC" | tail -n +2)
+    DST=$(echo "$DST" | tail -n +2)
+
+    if [ "$srcfile" = "$dstfile" ]; then
+        continue
+    fi
+
+    dir=$(dirname "$dstfile")
+    mkdir -p "$dir"
+    mv "$srcfile" "$dstfile"
+    count=$((count+1))
+done
+echo "$count files changed."
